@@ -100,8 +100,9 @@ html,body{height:100%;background:var(--bg0);font-family:var(--font-body);color:v
   scrollbar-width:none;
 }
 .theme-panel::-webkit-scrollbar{display:none;}
-.theme-panel.open{display:block;}
-
+.theme-panel.open{
+  display:block;
+}
 @keyframes panelIn{
   from{opacity:0;transform:translateY(-50%) translateX(-16px)}
   to{opacity:1;transform:translateY(-50%) translateX(0)}
@@ -800,14 +801,6 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
 }
 
 /* secondary text should not get extra fade on light themes */
-[data-theme="arctic"] .sw-name,
-[data-theme="sage"] .sw-name,
-[data-theme="coral"] .sw-name,
-[data-theme="linen"] .sw-name,
-[data-theme="plum"] .sw-name,
-[data-theme="rose"] .sw-name,
-[data-theme="slate"] .sw-name,
-
 [data-theme="arctic"] .login-card-sub,
 [data-theme="sage"] .login-card-sub,
 [data-theme="coral"] .login-card-sub,
@@ -1197,15 +1190,16 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
 
 .theme-panel {
   left: 12px;
-  right: auto;
-  width: min(236px, calc(100vw - 24px));
-  max-width: calc(100vw - 24px);
+  right: 12px;
+  width: auto;
+  max-width: none;
   top: auto;
   bottom: calc(70px + env(safe-area-inset-bottom, 0px));
   transform: none;
   max-height: min(68dvh, 520px);
   border-radius: 16px;
 }
+
 
 .active-theme-badge {
   bottom: calc(70px + env(safe-area-inset-bottom, 0px));
@@ -1217,6 +1211,37 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
   .offl {
     top: calc(64px + env(safe-area-inset-top, 0px));
     right: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-panel {
+    top: auto !important;
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: min(68dvh, 520px) !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .theme-panel.open {
+    display: block;
+    transform: none !important;
+    animation: mobilePanelIn 0.22s ease-out forwards !important;
+  }
+}
+
+@keyframes mobilePanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
@@ -1258,10 +1283,10 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
       <div class="sw-dots"><div class="sw-dot" style="background:#FB7185;box-shadow:0 0 6px #FB7185;"></div><div class="sw-dot" style="background:#FDA4AF;"></div><div class="sw-dot" style="background:#F97316;"></div></div>
       <div class="sw-name" style="color:#F0FAFF;">Ember Glow</div>
     </div> -->
-    <div class="swatch" data-theme="arctic" onclick="applyTheme('arctic',this)" style="background:linear-gradient(135deg,#EEF2FF,#F8FAFF);border:1px solid #e0e7ff;">
+    <!-- <div class="swatch" data-theme="arctic" onclick="applyTheme('arctic',this)" style="background:linear-gradient(135deg,#EEF2FF,#F8FAFF);border:1px solid #e0e7ff;">
       <div class="sw-dots"><div class="sw-dot" style="background:#6366F1;"></div><div class="sw-dot" style="background:#8B5CF6;"></div><div class="sw-dot" style="background:#EC4899;"></div></div>
       <div class="sw-name" style="color:#0F0A2A;">Arctic Light</div>
-    </div>
+    </div> -->
   </div>
   <div style="margin:12px 0 8px;font-size:8px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px;"><span>☀️</span> Light Palettes<span style="flex:1;height:1px;background:var(--border);display:block;"></span></div>
   <div class="swatch-grid">
