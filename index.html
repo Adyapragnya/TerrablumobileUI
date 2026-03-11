@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
 <title>Terrablu · Field Officer</title>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Space+Mono:wght@400;700&family=Unbounded:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -864,6 +864,274 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
 [data-theme="slate"] {
   --font-head: 'Unbounded', sans-serif !important;
   --font-body: 'Space Mono', monospace !important;
+}
+
+
+/* ═══════════════════════════════════════
+   REAL MOBILE SCREEN FIXES
+   append at end of CSS
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  html,
+  body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-text-size-adjust: 100%;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    position: relative;
+  }
+
+  .bg,
+  .orb {
+    position: fixed;
+  }
+
+  .phone {
+    position: fixed;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    max-width: none;
+    height: 100dvh;
+    min-height: 100svh;
+    transform: none !important;
+    border-radius: 0;
+    border: none;
+  }
+
+  .phone::before {
+    border-radius: 0;
+  }
+
+  .notch {
+    top: 0;
+    width: 118px;
+    height: 28px;
+    border-radius: 0 0 16px 16px;
+  }
+
+  .sbar {
+    top: calc(30px + env(safe-area-inset-top, 0px));
+    padding: 0 16px;
+  }
+
+  .scr {
+    top: 0;
+    bottom: 0;
+    padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .auth-screen.active {
+    min-height: 100%;
+    justify-content: flex-start;
+    padding:
+      calc(84px + env(safe-area-inset-top, 0px))
+      0
+      calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .login-logo-zone {
+    padding: 0 20px 16px;
+    margin-top: 10px;
+  }
+
+  .login-logo-img {
+    width: min(220px, 72vw);
+    max-width: 100%;
+    height: auto;
+  }
+
+  .login-card {
+    margin: 0 14px 18px;
+    padding: 22px 16px 18px;
+    border-radius: 16px;
+  }
+
+  .login-card-title {
+    font-size: 16px;
+  }
+
+  .login-card-sub {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .lfc,
+  .fc,
+  .lblk,
+  .ccard,
+  .togrow,
+  .gps {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .fc,
+  .lfc,
+  .lblk,
+  .ccard,
+  .togrow,
+  .gps {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .shead {
+    padding: 12px 14px 10px;
+  }
+
+  .sdiv {
+    margin: 6px 14px 10px;
+  }
+
+  .pgwrap {
+    padding: 0 14px 12px;
+    gap: 12px;
+  }
+
+  .trail {
+    margin: 0 14px 14px;
+  }
+
+  .rtog {
+    margin: 12px 14px;
+  }
+
+  .fpair {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin: 0 14px 10px;
+  }
+
+  .fpair .fc {
+    margin: 0;
+  }
+
+  .uprow {
+    flex-direction: column;
+    gap: 10px;
+    margin: 0 14px 10px;
+  }
+
+  .uc {
+    min-height: 78px;
+  }
+
+  .otp-row {
+    gap: 5px;
+    margin: 0 10px 10px;
+  }
+
+  .otp-box {
+    width: 42px;
+    height: 50px;
+    font-size: 16px;
+  }
+
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    padding:
+      10px 14px
+      calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+
+  .nav .bbk,
+  .nav .bnx {
+    width: 100%;
+    flex: none;
+  }
+
+  .bbk,
+  .bnx {
+    min-height: 48px;
+    padding: 14px 16px;
+  }
+
+  .sscr {
+    min-height: 100%;
+    justify-content: flex-start;
+    padding:
+      calc(86px + env(safe-area-inset-top, 0px))
+      18px
+      calc(28px + env(safe-area-inset-bottom, 0px));
+  }
+
+  #succ {
+    padding-top: calc(86px + env(safe-area-inset-top, 0px));
+  }
+
+  .sorb {
+    width: 104px;
+    height: 104px;
+    font-size: 42px;
+    margin-bottom: 18px;
+  }
+
+  .stit {
+    font-size: 20px;
+  }
+
+  .ssub {
+    margin-bottom: 18px;
+  }
+
+  .ipanel {
+    padding: 18px 16px;
+    margin-bottom: 18px;
+  }
+
+  .inum {
+    font-size: 42px;
+  }
+
+  .sscr .bnx {
+    width: 100% !important;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .theme-btn {
+    top: auto;
+    right: 12px;
+    bottom: calc(14px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    width: 44px;
+    height: 44px;
+  }
+
+  .theme-btn:hover {
+    transform: none;
+  }
+
+  .theme-panel {
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+    top: auto;
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    transform: none;
+    max-height: min(68dvh, 520px);
+    border-radius: 16px;
+  }
+
+  .active-theme-badge {
+    bottom: calc(70px + env(safe-area-inset-bottom, 0px));
+    max-width: calc(100vw - 24px);
+  }
+
+  .offl {
+    top: calc(64px + env(safe-area-inset-top, 0px));
+    right: 14px;
+  }
 }
 
 </style>
